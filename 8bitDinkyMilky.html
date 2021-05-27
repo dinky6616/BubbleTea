@@ -107,6 +107,7 @@
             .dropdown:hover .dropdown-content {display: block;}
 
             .dropdown:hover .dropbtn {background-color: #b65989;}
+
         </style>
         </head>
     <body>
@@ -115,7 +116,34 @@
         </div> <!-- SLUTTEN PÅ HOVED DIVEN -->
         <script>
             //Model - Variabler
-            let emptyGlass = 'EmptyGlass';
+            let glass = {
+                flavour: 'EmptyGlass', 
+                straw: '_NS', 
+                bobba: ''
+            };
+
+            // let listOfGlasses = [
+            //     //Milk flavour
+            //     'MILK','SBMILK','BMILK',
+            //     //Milk + Straw 
+            //     'MILK_BS', 'MILK_PINS', 'MILK_PS',
+            //     //
+            //     'BMILK_PS',
+            //     'BMILK_PS',
+            //     'BMILK_PS',
+
+            //     //Milk flavour + Bobba
+            //     '', '',
+            //     //Milk flavour + Straw + Bobba
+            //     '', '', 
+            //     //Empty glass (+ straw)
+            //     '', '',
+            //     ];
+
+
+
+
+
             let milk = '';
             let activeMilk = '';
             let straw = '';
@@ -137,25 +165,25 @@
                     <div class="dropdown">
                     <button class="dropbtn">MILK</button>
                     <div class="dropdown-content">
-                    <a href="#" onClick="chooseMilk('banana')">Banana🍌</a>
-                    <a href="#" onClick="chooseMilk('strawberry')">Strawberry🍓</a>
-                    <a href="#" onClick="chooseMilk('plain')">Plain🥛</a>
+                    <a href="#" onClick="chooseMilk('BMILK')">Banana🍌</a>
+                    <a href="#" onClick="chooseMilk('SBMILK')">Strawberry🍓</a>
+                    <a href="#" onClick="chooseMilk('MILK')">Plain🥛</a>
                     </div>
                     </div>
                     <div class="dropdown">
                     <button class="dropbtn">BOBA</button>
                     <div class="dropdown-content">
-                    <a href="#" onClick="chooseBobba('strawberry')">Strawberry🍓</a>
-                    <a href="#" onClick="chooseBobba('chocolate')">Chocolate🍫</a>
-                    <a href="#" onClick="chooseBobba('vanilla')">Vanilla🍦</a>
+                    <a href="#" onClick="chooseBobba('_SBB')">Strawberry🍓</a>
+                    <a href="#" onClick="chooseBobba('_CB')">Chocolate🍫</a>
+                    <a href="#" onClick="chooseBobba('_VB')">Vanilla🍦</a>
                     </div>
                     </div>
                     <div class="dropdown">
                     <button class="dropbtn">STRAW</button>
                     <div class="dropdown-content">
-                    <a href="#" onClick="chooseStraw('blue')">Blue</a>
-                    <a href="#" onClick="chooseStraw('pink')">Pink</a>
-                    <a href="#" onClick="chooseStraw('purple')">Purple</a>
+                    <a href="#" onClick="chooseStraw('_BS')">Blue</a>
+                    <a href="#" onClick="chooseStraw('_PINS')">Pink</a>
+                    <a href="#" onClick="chooseStraw('_PS')">Purple</a>
                     </div>
                     </div>
                     
@@ -163,7 +191,7 @@
                 </div>
                 <div class="MainContent">
                     <div style="background-color: black; width: 20px; height: 20px;">
-                    <img src="./ALLGLASSES/${activeMilk}${activeStraw}${activeBobba}${emptyGlass}.png"/>
+                    <img src="./ALLGLASSES/${glass.flavour}${glass.straw}${glass.bobba}.png"/>
                     </div>
                     
                     
@@ -175,49 +203,28 @@
                 </div>
                 <div class="Footer">Footer
                     <audio controls autoplay>
-                    <source src="horse.ogg" type="audio/ogg">
+                    <!-- <source src="horse.ogg" type="audio/ogg"> -->
                     </audio>
                 
                 </div>
                 `}
             //Controller
-
-            function checkIfStraw(){
-
-            }
-
-            function removeEmpty(){
-                emptyGlass = '';
-            }
-
             function chooseMilk(chosenMilk){
                 console.log(chosenMilk);
-                removeEmpty();
-                milk = chosenMilk;
+                glass.flavour = chosenMilk;
+                updateView();
             }
 
             function chooseBobba(chosenBobba){
                 console.log(chosenBobba);
-                removeEmpty();
-                bobba = chosenBobba;
+                glass.bobba = chosenBobba;
+                updateView();
             }
 
             function chooseStraw(chosenStraw){
                 console.log(chosenStraw);
-                removeEmpty();
-                straw = chosenStraw;
-            }
-
-            function showGlass(){
-                if(milk == 'plain'){
-                    activeMilk = 'MILK';
-                }
-                else if(milk == 'strawberry'){
-                    activeMilk = 'SBMILK';
-                }
-                else if(milk == 'banana'){
-                    activeMilk = 'BMILK';
-                }
+                glass.straw = chosenStraw;
+                updateView();
             }
 
         </script>
