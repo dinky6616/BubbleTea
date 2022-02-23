@@ -12,4 +12,4 @@ so long as you credit me for the images you use that I created.
 + If you are unsure please feel free to contact me on discord, maybe I can even help you create your
 vision! :)
 
-https://dinky6616.github.io/BubbleTea/8bitDinkyMilky.html
+[BubbleTea](https://dinky6616.github.io/BubbleTea/8bitDinkyMilky.html)
